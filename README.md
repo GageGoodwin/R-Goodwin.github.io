@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Robert Gage Goodwin</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
     <body>
         <h1>Robert Gage Goodwin</h1>
         <center>
