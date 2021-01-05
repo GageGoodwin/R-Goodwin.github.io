@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
     <body>
         <h1>Robert Gage Goodwin</h1>
