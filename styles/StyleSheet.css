@@ -5,6 +5,7 @@
 
 .teeth{
     font-size:60px;
+    color: black;
 }
 
 .land{
@@ -18,4 +19,9 @@
 
 .god{
     overflow: hidden;
+}
+
+a {
+    text-decoration: none; 
+    color: black; 
 }
