@@ -1,32 +1,207 @@
-.dinosaur{
-    text-align: center;
+/* Apple-inspired Design System */
+:root {
+    --color-text-primary: #1d1d1f;
+    --color-text-secondary: #86868b;
+    --color-background: #ffffff;
+    --font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
-.teeth{
-    font-size:60px;
-    color: black;
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.land{
+html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-text-primary);
+    background: var(--color-background);
+    line-height: 1.47059;
+    font-weight: 400;
+    letter-spacing: -0.022em;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    min-height: 100vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+/* Content */
+.content {
+    text-align: center;
+    max-width: 680px;
+    width: 100%;
+}
+
+/* Typography - Apple Style */
+.name {
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.8s var(--ease-out) 0.2s both;
+}
+
+.role {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.47059;
+    color: var(--color-text-secondary);
+    margin-bottom: 4rem;
+    animation: fadeInUp 0.8s var(--ease-out) 0.3s both;
+}
+
+/* Social Links - Refined Apple Style */
+.social-links {
+    display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center; 
-    min-height: 100vh;
+    gap: 2rem;
+    animation: fadeInUp 0.8s var(--ease-out) 0.4s both;
 }
 
-.god{
-    overflow: hidden;
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.35s var(--ease-out), opacity 0.3s var(--ease-out);
+    will-change: transform;
+    position: relative;
 }
 
-a {
-    text-decoration: none; 
-    color: black; 
-    font-family: Arial, Helvetica, sans-serif;
+.social-link::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.04);
+    opacity: 0;
+    transition: opacity 0.35s var(--ease-out);
 }
 
-body, h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto', sans-serif;
+.social-link:hover {
+    transform: scale(1.08);
+}
+
+.social-link:hover::before {
+    opacity: 1;
+}
+
+.social-link:active {
+    transform: scale(0.96);
+    transition-duration: 0.1s;
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    transition: opacity 0.3s var(--ease-out);
+}
+
+.social-link:hover .social-icon {
+    opacity: 0.85;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 3rem 1.5rem;
+    }
+    
+    .role {
+        margin-bottom: 3.5rem;
+    }
+    
+    .social-links {
+        gap: 1.75rem;
+    }
+    
+    .social-link {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .social-icon {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 2.5rem 1.25rem;
+    }
+    
+    .role {
+        margin-bottom: 3rem;
+    }
+    
+    .social-links {
+        gap: 1.5rem;
+    }
+    
+    .social-link {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .social-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1440px) {
+    .content {
+        max-width: 800px;
+    }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
